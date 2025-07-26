@@ -32,10 +32,12 @@ def find_factors(number: int) -> List[int]:
         List: returns all factors of the given number.
     """
     factors = []
-    for divisor in range(1, number + 1):
+    for divisor in range(1, int(number ** 0.5) + 1):
         if number % divisor == 0:
             factors.append(divisor)
-    return factors
+            if number // divisor != divisor:            
+                factors.append(number // divisor)
+    return sorted(factors)
 
 def main():
     """Main function to handle user input and display result"""
